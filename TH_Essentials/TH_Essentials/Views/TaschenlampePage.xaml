@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TH_Essentials.ViewModels"
+             x:Class="TH_Essentials.Views.TaschenlampePage"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:TaschenlampeViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <!--<Label Text="Hier entsteht in naher Zukunft eine Taschenlampe"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />-->
+            <Button Text="Taschenlampe einschalten"
+                    Padding="20"
+                    x:Name="ButtonOn"
+                    Clicked="ButtonOn_Clicked"/>
+            <Button Text="Taschenlampe ausschalten"
+                    Padding="20"
+                    x:Name="ButtonOff"
+                    Clicked="ButtonOff_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

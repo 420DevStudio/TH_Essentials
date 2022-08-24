@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TH_Essentials.Views.AboutPage"
+             xmlns:vm="clr-namespace:TH_Essentials.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#003c5a</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Primary}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,20,0,20" VerticalOptions="FillAndExpand">
+                    <!--<Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />-->
+                    <Label Text="TechHippie-Essentials-App" TextColor="Coral" FontSize="Title"/>
+
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <Label Text="Eine App für alle Basics" FontSize="Title"/>
+                <Label Text="Die grundlegende Idee hinter der App war es, dass ich mich über die Berechtigungen welche ich selbst für die einfachsten Apps gewähren muss, geärgert habe. " FontSize="16" Padding="0,0,0,0"/>
+                <Label Text="Die Lösung:" FontSize="16" Padding="0,0,0,0"/>
+                <Label Text="Warum nicht einfache Apps (Taschenlampe, Taschenrechner, Einkaufsliste ...) in einer App vereinen." FontSize="16" Padding="0,0,0,0"/>
+                <Label Text="Das Alles mit wirklich nur den notwendigen Berechtigungen und als kleine Zugabe auch nur ein Download für alle Basic Apps." FontSize="16" Padding="0,0,0,0"/>
+                
+                <!--<Label FontSize="16" Padding="0,24,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Für mehr Informationen besuchen Sie mich unter "/>
+                                <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>-->
+                <Button Margin="0,10,0,0" Text="Click here to Learn more"
+                        Command="{Binding OpenWebCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="Coral" />                
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
