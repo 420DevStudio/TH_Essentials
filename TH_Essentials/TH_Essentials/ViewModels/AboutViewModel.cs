@@ -10,7 +10,7 @@ namespace TH_Essentials.ViewModels
         public AboutViewModel()
         {
             Title = "Über TH Essentials";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://github.com/420DevStudio/TH_Essentials"));
         }
 
         public ICommand OpenWebCommand { get; }

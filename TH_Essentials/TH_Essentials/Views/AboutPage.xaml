@@ -33,10 +33,13 @@
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
                 <Label Text="Eine App für alle Basics" FontSize="Title"/>
                 <Label Text="Die grundlegende Idee hinter der App war es, dass ich mich über die Berechtigungen welche ich selbst für die einfachsten Apps gewähren muss, geärgert habe. " FontSize="16" Padding="0,0,0,0"/>
-                <Label Text="Die Lösung:" FontSize="16" Padding="0,0,0,0"/>
+                <Label Text="Die Lösung:" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0"/>
                 <Label Text="Warum nicht einfache Apps (Taschenlampe, Taschenrechner, Einkaufsliste ...) in einer App vereinen." FontSize="16" Padding="0,0,0,0"/>
                 <Label Text="Das Alles mit wirklich nur den notwendigen Berechtigungen und als kleine Zugabe auch nur ein Download für alle Basic Apps." FontSize="16" Padding="0,0,0,0"/>
-                
+                <Label Text="Vertrauen ist gut, Kontrolle ist besser:" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0"/>
+                <Label Text="Aus diesem Grund klicken Sie auf den Button. Dieser leitet Sie zu meiner Github Seite, auf welcher Sie den kompletten Code einsehen können." FontSize="16" Padding="0,0,0,0"/>
+                <Label Text="Über Verbesserungsvorschläge und Vorschläge zu gewünschten neuen Funktionen freue ich mich natürlich auch." FontSize="16" Padding="0,0,0,0"/>
+
                 <!--<Label FontSize="16" Padding="0,24,0,0">
                     <Label.FormattedText>
                         <FormattedString>
@@ -47,7 +50,7 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>-->
-                <Button Margin="0,10,0,0" Text="Click here to Learn more"
+                <Button Margin="0,10,0,0" Text="Code auf Github ansehen"
                         Command="{Binding OpenWebCommand}"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="Coral" />                

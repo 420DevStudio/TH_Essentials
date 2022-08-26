@@ -90,6 +90,9 @@
     <FlyoutItem Title="Taschenrechner" Icon="icon_about.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:TaschenrechnerPage}" />
     </FlyoutItem>
+    <FlyoutItem Title="Einkaufslisten" Icon="icon_about.png">
+        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:EinkaufslistenPage}" />
+    </FlyoutItem>
     <!--Hier enden meine eigenen Einträge-->
     <FlyoutItem Title="Browse" Icon="icon_feed.png">
         <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />

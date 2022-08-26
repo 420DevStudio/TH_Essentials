@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TH_Essentials.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
+// Link to the xamarin Guys and gals project: https://github.com/xamarin/mobile-samples/tree/main/LivePlayer/BasicCalculator
 
 namespace TH_Essentials.Views
 {
@@ -33,8 +36,6 @@ namespace TH_Essentials.Views
             this.resultText.Text = "0";
         }
 
-        // hier ist das Github von den Xamarin Leuten: https://github.com/xamarin/mobile-samples/tree/main/LivePlayer/BasicCalculator
-
         private void OnSquareRoot(object sender, EventArgs e)
         {
             if (currentState == -1 || currentState == 1)
@@ -49,14 +50,14 @@ namespace TH_Essentials.Views
 
         private void OnPercentage(object sender, EventArgs e)
         {
-            if (currentState == -1 || currentState == 1)
+            Console.WriteLine(currentState);
+            if (currentState == -1 || currentState == 1 || currentState == 2)
             {
                 var result = CalculatePercentage(firstNumber, secondNumber, myOperator);
                 this.resultText.Text = result.ToString();
                 firstNumber = result;
                 currentState = -1;
             }
-
         }
 
         private void OnSelectNumber(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace TH_Essentials.Views
             // if the current result is 0 in text box then we will direct the calculator to exclude 0 when pressing buttons
             if (resultText.Text == "0" || currentState < 0) // at first currentState is 1
             {
-                this.resultText.Text = ""; // here the text value will be cleared when pressing button
+                this.resultText.Text = "0"; 
 
                 if (currentState < 0) // value of currentState is 1 so this condition will be excluded
                     currentState *= -1;
@@ -89,22 +90,30 @@ namespace TH_Essentials.Views
                 {
                     secondNumber = number; // it will be implemented as the number of currentState changes i. e. 2
                 }
-            }
-
+            }            
+            
             if ((pressed == "." && currentState == 1) || (pressed == "." && currentState == 2))
             {
-                if (!resultText.Text.Contains("."))
+                //CultureInfo germanCulture = new CultureInfo("de-DE");
+                //CultureInfo usCulture = new CultureInfo("en-US");
+
+
+                if (!resultText.Text.Contains(".") && CultureInfo.CurrentCulture.ToString() == "de-DE") 
                 {
-                    resultText.Text = resultText.Text + button.Text;
+                    resultText.Text = resultText.Text + ",";
+                    Console.WriteLine(CultureInfo.CurrentCulture.ToString());
+
                 }
                 else
                 {
+                    resultText.Text = resultText.Text + pressed;
+                    Console.WriteLine(CultureInfo.CurrentCulture.ToString());
+
                     //resultText.Text = "";
-                    return;
+                    //return;
                 }
             }
-
-        }
+        }        
 
         private void OnSquareClicked(object sender, EventArgs e)
         {
@@ -115,7 +124,6 @@ namespace TH_Essentials.Views
                 firstNumber = result;
                 currentState = -1;
             }
-
         }
 
         private void OnCalculate(object sender, EventArgs e)
@@ -157,7 +165,6 @@ namespace TH_Essentials.Views
                     result = value1 - value2;
                     break;
             }
-
             return result;
         }
 
@@ -180,9 +187,7 @@ namespace TH_Essentials.Views
                     result = value1 - ((value1 * value2) / 100);
                     break;
             }
-
             return result;
-
         }
     }
 }
